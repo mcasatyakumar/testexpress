@@ -19,7 +19,7 @@ node {
      
       stage("Test") {
        echo ("Testing NodeJs App")
-       sh label: '', script: 'npm test'
+  
      
      }
 
