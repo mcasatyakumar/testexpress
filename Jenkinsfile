@@ -16,6 +16,12 @@ node {
        sh label: '', script: 'npm install'
      
      }
+     
+      stage("Test") {
+       echo ("Testing NodeJs App")
+       sh label: '', script: 'npm test'
+     
+     }
 
 
 }
