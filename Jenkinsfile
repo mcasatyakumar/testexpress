@@ -1,5 +1,7 @@
 node {
      def any
+     tools {nodejs "nodejs"}
+ 
      stage("Checkout") {
       
        echo ("Git Checkout")
