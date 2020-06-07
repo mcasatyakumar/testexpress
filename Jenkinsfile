@@ -7,7 +7,7 @@ node {
      }
   
      stage("Build") {
-       echo ("Building Angular App")
+       echo ("Building NodeJs App")
        sh label: '', script: 'npm install'
      
      }
