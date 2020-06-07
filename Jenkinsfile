@@ -1,8 +1,9 @@
 node {
-     def any
-    nodejs('nodejs') {
-
-}
+     
+     def nodeHome = tool 'nodejs'
+     env.PATH="${env.PATH}:${nodeHome}/bin"
+   
+     
  
      stage("Checkout") {
       
