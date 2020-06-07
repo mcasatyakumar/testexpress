@@ -1,6 +1,8 @@
 node {
      def any
-     tools {nodejs "nodejs"}
+    nodejs('nodejs') {
+
+}
  
      stage("Checkout") {
       
