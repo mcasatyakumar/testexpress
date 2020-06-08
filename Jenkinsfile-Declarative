@@ -5,10 +5,11 @@ pipeline {
     registry = "mcasatyakumar/mydockerhub"
     registryCredential = 'docker-creds'
     dockerHome = tool 'docker-jenkins'
-
-    
+    PATH = "${dockerHome}/bin:${PATH}"
   }
+  
   agent any
+  
   stages {
     stage('Cloning Git') {
       steps {
@@ -20,6 +21,20 @@ pipeline {
         script {
           docker.build registry + ":$BUILD_NUMBER"
         }
+      }
+    }
+   stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
   }
