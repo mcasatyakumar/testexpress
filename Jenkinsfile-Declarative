@@ -4,8 +4,8 @@ pipeline {
   environment {
     registry = "mcasatyakumar/mydockerhub"
     registryCredential = 'docker-creds'
-    dockerHome = tool 'docker-jenkins1'
-    PATH = "${dockerHome}/bin:${PATH}"
+    dockerHome = tool 'docker-jenkins'
+
     
   }
   agent any
