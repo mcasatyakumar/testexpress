@@ -1,11 +1,12 @@
 pipeline {
 
-  tools {docker 'docker-jenkins'}
-  
+ 
   environment {
     registry = "mcasatyakumar/mydockerhub"
     registryCredential = 'docker-creds'
+    dockerHome = tool 'docker-jenkins'
     PATH = "${dockerHome}/bin:${PATH}"
+    
   }
   agent any
   stages {
