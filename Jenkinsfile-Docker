@@ -2,7 +2,7 @@ node {
     def app
     
     stage('Initialization') {
-    echo ("Initialize Docker')
+    echo ("Initialize Docker")
     def dockerHome = tool 'docker-jenkins'
     env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
