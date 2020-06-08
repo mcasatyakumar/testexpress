@@ -28,7 +28,7 @@ pipeline {
       steps{
         script {
           withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-jenkins') {
-          echo "Docker Image "+$dockerImage
+         
           sh "docker push $registry:$BUILD_NUMBER"
           }
         }
