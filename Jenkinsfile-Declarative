@@ -1,0 +1,21 @@
+pipeline {
+  environment {
+    registry = "mcasatyakumar/mydockerhub"
+    registryCredential = ‘dockerhub’
+  }
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/mcasatyakumar/testexpress.git'
+      }
+    }
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+  }
+}
