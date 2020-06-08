@@ -24,12 +24,12 @@ pipeline {
         }
       }
     }
-   stage('Deploy Image') {
+   stage('Push Image') {
       steps{
         script {
           docker.withRegistry( '', registryCredential ) {
           echo "Docker Image "+$dockerImage
-          dockerImage.push()
+          sh "docker push $registry:$BUILD_NUMBER"
           }
         }
       }
